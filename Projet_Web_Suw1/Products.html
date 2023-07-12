@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="Products.css">
+	<title></title>
+</head>
+<body>
+	<header>
+<nav class="menu">
+	<img src="GEC1.png" class="logo">
+	<div class="nav-links">
+		<ul>
+			<li><a href="#">Estates</a></li>
+			<li><a href="#">Cars</a></li>
+			<li><a href="#">Auctions</a></li>
+		</ul>	
+	</div>
+	<img src="Mansion1.jpg">
+</nav>
+</header>
+
+<div id="image-container">
+  <img id="image" src="" alt="Image">
+</div>
+<div id="description-container">
+  <p id="description"></p>
+</div>
+<button id="suivant">Suivant</button>
+<script type="text/javascript">
+var images = [
+  "chemin/vers/image1.jpg",
+  "chemin/vers/image2.jpg",
+  "chemin/vers/image3.jpg"
+];
+
+var descriptions = [
+  "Description de l'image 1",
+  "Description de l'image 2",
+  "Description de l'image 3"
+];
+
+var index = 0;
+
+function afficherImageEtDescription() {
+  var image = document.getElementById("image");
+  var description = document.getElementById("description");
+
+  image.src = images[index];
+  description.textContent = descriptions[index];
+}
+
+function boutonSuivant() {
+  index++;
+  if (index >= images.length) {
+    index = 0;
+  }
+  afficherImageEtDescription();
+}
+
+var bouton = document.getElementById("suivant");
+bouton.addEventListener("click", boutonSuivant);
+
+afficherImageEtDescription();
+
+
+
+</script>
+
+<footer>
+	<br>
+	<br>
+	<table id="mytable">
+		<tr>
+			<th><a href="Buy.html">Buy</a></th>
+			<th><a href="Seller.html">Sell</a></th>
+			<th><a href="Community.html">Community</a></th>
+			<th><a href="aboutus.html">About us</a></th>
+		</tr>
+		<tr>
+			<td><a href="fff">Buy it now</a></td>
+			<td><a href="fff">Seller protection</a></td>
+			<td><a href="fff">Groups</a></td>
+			<td><a href="fff">Legal Imprint</a></td>
+		</tr>
+		<tr>
+			<td><a href="fihfi"> Bid</a></td>
+			<td><a href="fff">Sell cars</a></td>
+			<td><a href="fff">News</a></td>
+			<td><a href="fff">Legal Notices</a></td>
+		</tr>
+		<tr>
+			<td><a href="fff">Black fridays offers</td>
+			<td><a href="fff">Sell estates</a></td>
+		</tr>
+		
+		
+	</table><br>
+	<hr>
+
+<center><div id="footer">Copyright &copy; Grandeur Estates & Cars<br>       <a href="Grandeur.estates&cars@gmail.com">Grandeur.estates&cars@gmail.com</a>   </div></center> 
+</footer>
+</body>
+</html>

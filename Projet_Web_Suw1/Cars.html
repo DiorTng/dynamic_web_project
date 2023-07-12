@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GEC</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="cars.css">
+</head>
+<body>
+<script type="text/javascript">
+
+</script>
+<nav>
+  <img src="GEC(2).png" class="logo" width="550" height="50">
+  <!--<h1>LOGO</h1>-->
+  <ul class="main-menu">
+    <li><a href="">Home</a></li>
+    <li><a href="">Estates</a>
+      <ul class="sub-menu">
+        <li><a href="#Castles" target="blank">Castles</a></li>
+        <li><a href="#Mansions" target="blank">Mansions</a></li>
+        <li><a href="#Villas" target="blank">Villas</a></li>
+        <li><a href="#Apartments" target="blank">Apartments</a></li>
+        <li><a href="#Islands" target="blank">Islands</a></li>
+        <li><a href="#Penthouses" target="blank">Penthouses</a></li>
+        <li><a href="#Chalets" target="blank">Chalets</a></li>
+        <li><a href="#Bungalows" target="blank">Bungalows</a></li>
+      </ul>
+    </li>
+    <li><a href="">Cars</a>
+      <ul class="sub-menu">
+        <li><a href="">SUV</a></li>
+        <li><a href="">Sports car</a></li>
+        <li><a href="">Convertible</a></li>
+        <li><a href="">Coupe</a></li>
+        <li><a href="">Grand Tourer</a></li>
+        <li><a href="">American cars</a></li>
+      </ul>
+    </li>
+    <li><a href="">Special Offers</a> 
+      <ul class="sub-menu">
+        <li><a href="">Best Offers</a></li>
+        <li><a href="">Bids</a></li>
+      </ul>
+    </li>
+    <li><a href="">My Account</a></li>
+    <li><a href="">Contact Us</a></li>
+  </ul>
+</nav>
+<br><br><br><br><br>
+<br>
+<center><h2>SUV</h2></center>
+  <div class="cars-card">
+    <img id="carsImage" src="SUV1.jpg" alt="SUV1">
+    <div class="description">
+      <h4>SUV1</h4>
+      <p>jfbjdskbkjdbsfkjqbsfk,svsvfhdshgfdsghfgdhsgfhdsn</p>
+      <button>Buy now</button><br>
+      <button>Add</button><br>
+      <button>Negotiate</button>
+    </div>
+  </div>
+  <br>
+  <center><button id="nextButton">Next</button></center>
+
+  <script>
+    var images = ["SUV1.jpg", "SUV2.jpg", "SUV3.jpg"];
+    var descriptions = [
+      "Description du SUV1. Prix en livre sterling : £10000",
+      "Description du SUV2. Prix en livre sterling : £15000",
+      "Description du SUV3. Prix en livre sterling : £20000"
+    ];
+
+    var currentIndex = 0;
+    var carsImage = document.getElementById('carsImage');
+    var description = document.querySelector('.description');
+
+    function updateCar() {
+      carsImage.src = images[currentIndex];
+      description.innerHTML = descriptions[currentIndex];
+
+      // Mettre en évidence le prix en livre sterling
+      var updatedDescription = description.innerHTML.replace(/£(\d+)/g, '<span class="highlight">£$1</span>');
+      description.innerHTML = updatedDescription;
+    }
+
+    var nextButton = document.getElementById('nextButton');
+    nextButton.addEventListener('click', function() {
+      currentIndex++;
+      if (currentIndex >= images.length) {
+        currentIndex = 0;
+      }
+      updateCar();
+    });
+
+    // Mettre à jour le contenu initial
+    updateCar();
+  </script>
+
+  <center><h2>Sport cars</h2></center>
+<div class="cars-card">
+  <img id="sportCarsImage" src="Sport1.jpg" alt="Sport Car 1">
+  <div class="description">
+    <h4>Sport Car 1</h4>
+    <p>Description de la voiture de sport 1. Prix en livre sterling : £30000</p>
+    <button>Buy now</button><br>
+    <button>Add</button><br>
+    <button>Negotiate</button>
+  </div>
+</div>
+<br>
+<center><button id="nextSportCarsButton">Next</button></center>
+
+<script>
+  var sportCarsImages = ["Sport1.jpg", "Sport2.jpg", "Sport3.jpg"];
+  var sportCarsDescriptions = [
+    "Description de la voiture de sport 1. Prix en livre sterling : £30000",
+    "Description de la voiture de sport 2. Prix en livre sterling : £40000",
+    "Description de la voiture de sport 3. Prix en livre sterling : £50000"
+  ];
+
+  var sportCarsCurrentIndex = 0;
+  var sportCarsImage = document.getElementById('sportCarsImage');
+  var sportCarsDescription = document.querySelector('.description');
+
+  function updateSportCar() {
+    sportCarsImage.src = sportCarsImages[sportCarsCurrentIndex];
+    sportCarsDescription.innerHTML = sportCarsDescriptions[sportCarsCurrentIndex];
+
+    // Mettre en évidence le prix en livre sterling
+    var updatedDescription = sportCarsDescription.innerHTML.replace(/£(\d+)/g, '<span class="highlight">£$1</span>');
+    sportCarsDescription.innerHTML = updatedDescription;
+  }
+
+  var nextSportCarsButton = document.getElementById('nextSportCarsButton');
+  nextSportCarsButton.addEventListener('click', function() {
+    sportCarsCurrentIndex++;
+    if (sportCarsCurrentIndex >= sportCarsImages.length) {
+      sportCarsCurrentIndex = 0;
+    }
+    updateSportCar();
+  });
+
+  // Mettre à jour le contenu initial
+  updateSportCar();
+</script>
+
+</body>
+</html>

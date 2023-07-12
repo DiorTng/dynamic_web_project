@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Changement d'images et de descriptions</title>
+  <style>
+    .cars-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .cars-card img {
+      max-width: 400px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .cars-card h4 {
+      font-size: 18px;
+    }
+
+    .cars-card p {
+      font-size: 14px;
+    }
+
+    .cars-card button {
+      margin-top: 10px;
+    }
+
+    .cars-card .price {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <center><h2>SUV</h2></center>
+  <div class="cars-card">
+    <img id="SUVImage" src="SUV1.jpg" alt="SUV1">
+    <div class="description">
+      <h4 id="SUVTitle">SUV1</h4>
+      <p id="SUVDescription">jfbjdskbkjdbsfkjqbsfk,svsvfhdshgfdsghfgdhsgfhdsn</p>
+      <p class="price">£10,000</p>
+      <button>Buy now</button><br>
+      <button>Add</button><br>
+      <button>Negotiate</button>
+    </div>
+  </div>
+  <br>
+  <center><button onclick="changeCar('SUV')">Next</button></center>
+
+  <center><h2>Sport cars</h2></center>
+  <div class="cars-card">
+    <img id="SportCarsImage" src="Sport1.jpg" alt="Sport1">
+    <div class="description">
+      <h4 id="SportTitle">Sport1</h4>
+      <p id="SportDescription">Description Sport1</p>
+      <p class="price">£20,000</p>
+      <button>Buy now</button><br>
+      <button>Add</button><br>
+      <button>Negotiate</button>
+    </div>
+  </div>
+  <br>
+  <center><button onclick="changeCar('Sport')">Next</button></center>
+
+  <center><h2>Convertible</h2></center>
+  <div class="cars-card">
+    <img id="ConvertibleCarsImage" src="Convertible1.jpg" alt="Convertible1">
+    <div class="description">
+      <h4 id="ConvertibleTitle">Convertible1</h4>
+      <p id="ConvertibleDescription">Description Convertible1</p>
+      <p class="price">£30,000</p>
+      <button>Buy now</button><br>
+      <button>Add</button><br>
+      <button>Negotiate</button>
+    </div>
+  </div>
+  <br>
+  <center><button onclick="changeCar('Convertible')">Next</button></center>
+
+  <script>
+    var carIndex = {
+      "SUV": 0,
+      "Sport": 0,
+      "Convertible": 0
+    };
+
+    var carsData = {
+      "SUV": {
+        "images": ["SUV1.jpg", "SUV2.jpg", "SUV3.jpg"],
+        "titles": ["SUV1", "SUV2", "SUV3"],
+        "descriptions": [
+          "Description SUV1",
+          "Description SUV2",
+          "Description SUV3"
+        ],
+        "prices": ["£10,000", "£15,000", "£20,000"]
+      },
+      "Sport": {
+        "images": ["Sport1.jpg", "Sport2.jpg", "Sport3.jpg"],
+        "titles": ["Sport1", "Sport2", "Sport3"],
+        "descriptions": [
+          "Description Sport1",
+          "Description Sport2",
+          "Description Sport3"
+        ],
+        "prices": ["£20,000", "£25,000", "£30,000"]
+      },
+      "Convertible": {
+        "images": ["Convertible1.jpg", "Convertible2.jpg", "Convertible3.jpg"],
+        "titles": ["Convertible1", "Convertible2", "Convertible3"],
+        "descriptions": [
+          "Description Convertible1",
+          "Description Convertible2",
+          "Description Convertible3"
+        ],
+        "prices": ["£30,000", "£35,000", "£40,000"]
+      }
+    };
+
+    function changeCar(section) {
+      carIndex[section]++;
+      if (carIndex[section] >= carsData[section].images.length) {
+        carIndex[section] = 0;
+      }
+
+      var newIndex = carIndex[section];
+
+      var imageElement = document.getElementById(section + 'Image');
+      imageElement.src = carsData[section].images[newIndex];
+
+      var titleElement = document.getElementById(section + 'Title');
+      titleElement.textContent = carsData[section].titles[newIndex];
+
+      var descriptionElement = document.getElementById(section + 'Description');
+      descriptionElement.textContent = carsData[section].descriptions[newIndex];
+
+      var priceElement = document.querySelector('.' + section.toLowerCase() + '-card .price');
+      priceElement.textContent = carsData[section].prices[newIndex];
+    }
+  </script>
+</body>
+</html>
